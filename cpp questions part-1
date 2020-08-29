@@ -1,0 +1,213 @@
+
+
+Q1.  Define a class employee having the following description:             
+Data Members	Description
+Pan	To store personal account number
+Name	To store name
+Taxincome	To store annual taxable income
+Tax	To store tax that is calculated
+           
+Member Functions	Description
+InputInfo()	Store the pan number,name,taxableincome
+TaxCalc()	Calculate tax for an employee
+DisplayInfo()	Output details of an employee
+ Write a C++ program to compute the tax according to the given conditions and display
+  the output.
+Total Annual Taxable Income	Tax Rate
+Upto  2,50,000	No tax
+From 2,50,000 to 3,00,000	10 % of the income exceeding 2,50,000
+From 3,00,000 to 4,00,000	Rs. 5000+20 % of the income exceeding 3,00,000
+Above 4,00,000	Rs 25000 + 30 % of the income exceeding 4,00,000
+
+Code:-----------------------
+#include<iostream>
+Using namespace std;
+class employee
+{
+  private:
+      long acc;
+      string name;
+      long taxableincome;
+      long tax;
+  public:
+    void inputinfo()
+    {
+        cout<<"Enter account number:";
+        cin>>acc;
+        cout<<"\n\nEnter name of employee:";
+        cin>>name;
+        cout<<"\nEnter taxable income:";
+        cin>>taxableincome;
+
+
+    }
+    void caltax()
+    {
+       if(taxableincome<=250000)
+       {
+        tax=0;
+       }
+       else if(taxableincome>=250000 && taxableincome<=300000)
+       {
+           tax=(taxableincome*10)/100;
+
+       }
+       else if(taxableincome>=300000 && taxableincome<=400000)
+       {
+
+           tax=((taxableincome*20)/100)+5000;
+       }
+       else
+       {
+
+           tax=((taxableincome*30)/100)+25000;
+
+       }
+
+    }
+    void displayinfo()
+    {
+        cout<<"\n\n";
+        cout<<"\nAccount no.:="<<acc<<endl;
+        cout<<"\nName:="<<name<<endl;
+        cout<<"\nTax able income:"<<taxableincome<<endl;
+        cout<<"\nTax:="<<tax<<endl;
+        cout<<"\nIncome after paying of tax:"<<taxableincome-tax<<endl;
+
+
+    }
+};
+
+int main()
+{
+  employee e1;
+  e1.inputinfo();
+  e1.caltax();
+  e1.displayinfo();
+}
+
+
+
+
+
+ 
+Code:----------------
+#include<iostream>
+Using namespace std;
+class stu
+{
+private:
+    string name;
+    long roll_no;
+    int a[3];
+    float per,sum=0.0;
+public:
+  void showdata();
+    void setdata()
+    {
+
+        cout<<"Enter your name:";
+        cin>>name;
+        cout<<"Enter your roll number:";
+        cin>>roll_no;
+        cout<<"Enter your  marks in three subject:";
+        for(int i=0;i<3;i++)
+        {
+
+            cin>>a[i];
+        }
+    }
+    void percal_grade()
+    {
+    for(int i=0;i<3;i++ )
+    {
+        sum=sum+a[i];
+
+    }
+    per=(sum/300)*100;
+    if(per>=90 && per<=100)
+        cout<<"\n\n Grade A";
+    else if(per>=80 && per<=90)
+        cout<<"\n\n Grade B";
+    else if(per>=70 && per<=80)
+        cout<<"Grade C";
+    else if(per>=60 && per<=70)
+        cout<<"\n\n Grade C";
+    else if(per>=40 && per<=60)
+        cout<<"\n\n Grade D";
+    else
+        cout<<"\n\nFAIL!!!!";
+    cout<<"\n\nPercentage of the student is:="<<per<<"%"<<endl;
+    }
+
+
+};
+void stu::showdata()
+{
+
+    cout<<"\nName of the student:="<<name<<endl;
+    for(int i=0;i<3;i++)
+        cout<<"\nMark :="<<a[i];
+}
+int main()
+{
+
+    stu s1;
+    s1.setdata();
+    s1.showdata();
+    s1.percal_grade();
+
+}
+
+
+
+ 
+Code:---------------------
+#include<iostream>
+using namespace std;
+
+class swapnum
+{
+    int a,b;
+public:
+    swapnum()
+    {
+
+        cout<<"Enter value of numbers a& b:=";
+        cin>>a>>b;
+        cout<<"\n\nValue after swap:"<<"a="<<a<<"\t"<<"b="<<b;
+
+
+    }
+    void swapn()
+    {
+    int t;
+     t=a;
+     a=b;
+     b=t;
+
+    }
+    void showdata()
+    {
+        swapn();
+        cout<<"\n\nValue after swap:"<<"a="<<a<<"\t"<<"b="<<b;
+
+    }
+
+};
+int main()
+{
+
+    swapnum s;
+    s.showdata();
+}
+
+
+
+
+
+
+
+
+
+
